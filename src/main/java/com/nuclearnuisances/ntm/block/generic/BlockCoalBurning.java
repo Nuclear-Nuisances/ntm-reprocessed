@@ -26,23 +26,22 @@ public class BlockCoalBurning extends BlockOutgas {
 		super.randomDisplayTick(stateIn, worldIn, pos, rand);
 		for(EnumFacing dir:EnumFacing.VALUES){
 			if(dir == EnumFacing.DOWN) continue;
+			else if (worldIn.getBlockState(pos.offset(dir)).getBlock() != Blocks.AIR) continue;
 
-			if(worldIn.getBlockState(pos.offset(dir)).getBlock() == Blocks.AIR){
-				double ix = pos.getX() + 0.5F + dir.getXOffset() + rand.nextDouble() - 0.5D;
-				double iy = pos.getY() + 0.5F + dir.getYOffset() + rand.nextDouble() - 0.5D;
-				double iz = pos.getZ() + 0.5F + dir.getZOffset() + rand.nextDouble() - 0.5D;
+            double ix = pos.getX() + 0.5F + dir.getXOffset() + rand.nextDouble() - 0.5D;
+			double iy = pos.getY() + 0.5F + dir.getYOffset() + rand.nextDouble() - 0.5D;
+			double iz = pos.getZ() + 0.5F + dir.getZOffset() + rand.nextDouble() - 0.5D;
 
-				if(dir.getXOffset() != 0)
-					ix = pos.getX() + 0.5F + dir.getXOffset() * 0.5 + rand.nextDouble() * 0.125 * dir.getXOffset();
-				if(dir.getYOffset() != 0)
-					iy = pos.getY() + 0.5F + dir.getYOffset() * 0.5 + rand.nextDouble() * 0.125 * dir.getYOffset();
-				if(dir.getZOffset() != 0)
-					iz = pos.getZ() + 0.5F + dir.getZOffset() * 0.5 + rand.nextDouble() * 0.125 * dir.getZOffset();
+			if(dir.getXOffset() != 0)
+				ix = pos.getX() + 0.5F + dir.getXOffset() * 0.5 + rand.nextDouble() * 0.125 * dir.getXOffset();
+			if(dir.getYOffset() != 0)
+				iy = pos.getY() + 0.5F + dir.getYOffset() * 0.5 + rand.nextDouble() * 0.125 * dir.getYOffset();
+			if(dir.getZOffset() != 0)
+				iz = pos.getZ() + 0.5F + dir.getZOffset() * 0.5 + rand.nextDouble() * 0.125 * dir.getZOffset();
 
-				worldIn.spawnParticle(EnumParticleTypes.FLAME, ix, iy, iz, 0.0, 0.0, 0.0);
-				worldIn.spawnParticle(EnumParticleTypes.SMOKE_NORMAL, ix, iy, iz, 0.0, 0.0, 0.0);
-				worldIn.spawnParticle(EnumParticleTypes.SMOKE_NORMAL, ix, iy, iz, 0.0, 0.1, 0.0);
-			}
+			worldIn.spawnParticle(EnumParticleTypes.FLAME, ix, iy, iz, 0.0, 0.0, 0.0);
+			worldIn.spawnParticle(EnumParticleTypes.SMOKE_NORMAL, ix, iy, iz, 0.0, 0.0, 0.0);
+			worldIn.spawnParticle(EnumParticleTypes.SMOKE_NORMAL, ix, iy, iz, 0.0, 0.1, 0.0);
 
 		}
 
