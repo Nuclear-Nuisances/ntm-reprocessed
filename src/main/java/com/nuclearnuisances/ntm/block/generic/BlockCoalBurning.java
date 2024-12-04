@@ -3,6 +3,7 @@ package com.nuclearnuisances.ntm.block.generic;
 import java.util.Random;
 
 import net.minecraft.block.material.MapColor;
+import net.minecraft.block.material.Material;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.Entity;
 import net.minecraft.init.Blocks;
@@ -15,9 +16,10 @@ import net.minecraft.world.World;
 
 public class BlockCoalBurning extends BlockOutgas {
 
-	public BlockCoalBurning(MapColor mat) {
+	public BlockCoalBurning(Material mat) {
 		super(mat, false, 1, false);
 		this.setTickRandomly(true);
+		this.setWalkEffect((e)->e.setFire(3));
 	}
 
 
@@ -68,10 +70,5 @@ public class BlockCoalBurning extends BlockOutgas {
 			}
 		}
 
-	}
-
-	@Override
-	public void onEntityWalk(World worldIn, BlockPos pos, Entity entityIn) {
-		entityIn.setFire(3);
 	}
 }

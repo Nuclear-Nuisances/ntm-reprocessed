@@ -2,8 +2,8 @@ package com.nuclearnuisances.ntm.block.generic;
 
 import com.nuclearnuisances.ntm.block.NTMBlocks;
 import net.minecraft.block.Block;
-import net.minecraft.block.BlockOre;
 import net.minecraft.block.material.MapColor;
+import net.minecraft.block.material.Material;
 import net.minecraft.entity.Entity;
 import net.minecraft.init.Blocks;
 import net.minecraft.util.EnumParticleTypes;
@@ -17,8 +17,8 @@ public class BlockOutgas extends BlockOre {
     boolean onBreak;
     boolean onNeighbour;
 
-    public BlockOutgas(MapColor color, boolean randomTick, int rate, boolean onBreak) {
-        super(color);
+    public BlockOutgas(Material material, boolean randomTick, int rate, boolean onBreak) {
+        super(material);
         this.setTickRandomly(randomTick);
         this.randomTick = randomTick;
         this.rate = rate;
@@ -26,7 +26,7 @@ public class BlockOutgas extends BlockOre {
         this.onNeighbour = false;
     }
 
-    public BlockOutgas(MapColor mat, boolean randomTick, int rate, boolean onBreak, boolean onNeighbour) {
+    public BlockOutgas(Material mat, boolean randomTick, int rate, boolean onBreak, boolean onNeighbour) {
         this(mat, randomTick, rate, onBreak);
         this.onNeighbour = onNeighbour;
     }

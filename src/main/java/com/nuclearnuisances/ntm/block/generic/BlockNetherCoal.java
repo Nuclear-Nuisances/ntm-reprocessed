@@ -12,8 +12,8 @@ import net.minecraft.world.World;
 import java.util.Random;
 
 public class BlockNetherCoal extends BlockOutgas {
-    public BlockNetherCoal(MapColor color, boolean randomTick, int rate, boolean onBreak) {
-        super(color, randomTick, rate, onBreak);
+    public BlockNetherCoal(Material mat, boolean randomTick, int rate, boolean onBreak) {
+        super(mat, randomTick, rate, onBreak);
     }
 
 //    @Override
