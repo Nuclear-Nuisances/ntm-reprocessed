@@ -40,6 +40,6 @@ public class BlockSpeedy extends Block {
     @Override
     public void addInformation(ItemStack stack, @Nullable World worldIn, List<String> tooltip, ITooltipFlag flagIn) {
         super.addInformation(stack, worldIn, tooltip, flagIn);
-        tooltip.add(TextFormatting.BLUE+ I18n.format(this.getTranslationKey()+".tooltip", Math.floor((speed - 1) * 100)));
+        tooltip.add(TextFormatting.BLUE+ I18n.format("block.speedboost.tooltip", Math.floor((speed - 1) * 100)));
     }
 }
